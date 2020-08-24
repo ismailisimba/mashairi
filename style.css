@@ -227,11 +227,9 @@ html {
 }
 
 #container-start {
-    font-family:"Mali" ;
-    font-size: 24px;
+    font-size: 34px;
     font-weight: 700;
     letter-spacing: 5px;
-
 
     display: block;
     position: relative;
@@ -255,7 +253,7 @@ html {
 }
 
 .message {
-    width: 35%;
+    width: 60%;
 }
 
 .message:nth-child(1) {
@@ -282,9 +280,8 @@ html {
   and (-webkit-min-device-pixel-ratio: 2) {
 
     #container-start {
-        font-family:"Mali" ;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 24px;
     }
 
 

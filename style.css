@@ -236,15 +236,9 @@ html {
 
 #container-start {
     font-family:"Monoton" ;
-    font-size: 40px;
-    letter-spacing: 7px;
+    font-size: 30px;
+    letter-spacing: 5px;
 
-
-   
-
-
-    display: flex;
-    flex-flow: column;
 
     display: block;
     position: relative;

@@ -127,71 +127,196 @@ const localFunc = {
     
           newMainDiv.appendChild(fetchSheetValButt);
 
+
+          //Create maintext container
+          let mainTextContainer = document.createElement("div");
+
+          mainTextContainer.style.fontSize = "12px";
+        
+          mainTextContainer.style.fontWeight = "500";
+          mainTextContainer.style.fontFamily = "Mali";
+          mainTextContainer.style.width = "60%";
+          mainTextContainer.style.minWidth = "min-content";
+          mainTextContainer.style.height = "300px";
+          mainTextContainer.style.boxSizing = "border-box";
+          mainTextContainer.style.color = "#323e48";
+          mainTextContainer.style.backgroundColor = "#a2a9ad";
+          mainTextContainer.style.display = "inline";
+          mainTextContainer.style.position = "absolute";
+          mainTextContainer.style.top = "90px";
+          mainTextContainer.style.marginLeft = "20%";
+          mainTextContainer.id = "mainTextContainer";
+
+          mainTextContainer.style.overflowX = "scroll";
+
+    
+          
+    
+          newMainDiv.appendChild(mainTextContainer);
+
+          //screens inside mainTextContainer used for displaying
+            //Create maintext container
+            let textContainers = [];
+            let textContainer = document.createElement("div");
+            textContainer.className = "textContainers";
+         
+            textContainer.style.width = "100%";
+            textContainer.style.height = "100%";
+            textContainer.style.backgroundColor = "#a2a9ad";
+            textContainer.style.display = "inline";
+            textContainer.style.position = "absolute";
+            //textContainer.style.position = "absolute";
+            textContainer.style.left = "0";
+            textContainer.id = "mainMenu";
+
+            //textContainers.push(textContainer);
+            let textContainer2 = document.createElement("div");
+            let textContainer3 = document.createElement("div");
+            
+            textContainer2.id = "gameDetails";
+            textContainer2.className = "textContainers";
+            textContainer2.style.width = "100%";
+            textContainer2.style.height = "100%";
+            textContainer2.style.backgroundColor = "#a2a9ad";
+            textContainer2.style.display = "inline";
+            textContainer2.style.position = "absolute";
+           // textContainer2.style.position = "absolute";
+            //textContainer2.style.top = "90px";
+            textContainer2.style.left = "100%";
+
+            textContainer3.id = "gameScreen";
+            textContainer3.className = "textContainers";
+            textContainer3.style.width = "100%";
+            textContainer3.style.height = "100%";
+            textContainer3.style.backgroundColor = "#a2a9ad";
+            textContainer3.style.display = "inline";
+            textContainer3.style.position = "absolute";
+           // textContainer3.style.position = "absolute";
+           // textContainer3.style.top = "90px";
+            textContainer3.style.left = "200%";
+
+            mainTextContainer.appendChild(textContainer);
+            mainTextContainer.appendChild(textContainer2);
+            mainTextContainer.appendChild(textContainer3);
+
+            textContainers = document.getElementsByClassName("textContainers");
+            
+
       
            
       
       
       },
+      fetchInfo: async function  () {
+        const myInit = {
+              method: "GET",
+              mode: "cors",
+             // credentials: "omit",
+              headers: {
+               // 'Content-Type': 'text/txt',
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              redirect: 'follow'
+            };
+  
+        var myRequest = new Request('https://script.google.com/macros/s/AKfycbxJR2x-WpAOkT27M9BF2lh7K6NtPJSqYYNvvtmb0VRMItKSXJ0/exec');
+        
+  
+             
+        var returnVal = await fetch(myRequest, myInit)
+              .then(function(response) {
+                if (!response.ok) {
+                  
+                  throw new Error("HTTP error, status = " + response.status);
+                  
+                }
+                
+                return response.text();
+              })
+              .then(function(myBlob) {
+                
+                var objectURL = myBlob;
+                let newMainDiv = document.getElementById("newMainDiv");
+                //newMainDiv.innerHTML = objectURL;
+                return objectURL;
+                
+              })
+              .catch(function(error) {
+                var p = document.createElement('p');
+                p.appendChild(
+                  document.createTextNode('Error: ' + error.message)
+                );
+                document.body.insertBefore(p, myImage2);
+              });
+  
+  
+              document.getElementById("sheetVal").innerHTML = returnVal;
+             
+            
+            
+  },
+  fetchInfoWithFilter: async function  () {
+    const myInit = {
+          method: "POST",
+          mode: "cors",
+         // credentials: "omit",
+          headers: {
+           // 'Content-Type': 'text/txt',
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          redirect: 'follow',
+          body: "This is my first post"
+        };
+
+    var myRequest = new Request('https://script.google.com/macros/s/AKfycbxJR2x-WpAOkT27M9BF2lh7K6NtPJSqYYNvvtmb0VRMItKSXJ0/exec');
+    
+
+         
+    var returnVal = await fetch(myRequest, myInit)
+          .then(function(response) {
+            if (!response.ok) {
+              
+              throw new Error("HTTP error, status = " + response.status);
+              
+            }
+            
+            return response.text();
+          })
+          .then(function(myBlob) {
+            
+            var objectURL = myBlob;
+            let newMainDiv = document.getElementById("newMainDiv");
+            //newMainDiv.innerHTML = objectURL;
+            return objectURL;
+            
+          })
+          .catch(function(error) {
+            var p = document.createElement('p');
+            p.appendChild(
+              document.createTextNode('Error: ' + error.message)
+            );
+            document.body.insertBefore(p, myImage2);
+          });
+
+
+          document.getElementById("sheetVal").innerHTML = returnVal;
+         
+        
+        
+},
 
 };
 const localVar = {};
 
 
-async function fetchInfo () {
-      const myInit = {
-            method: "GET",
-            mode: "cors",
-           // credentials: "omit",
-            headers: {
-             // 'Content-Type': 'text/txt'
-              // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: 'follow'
-          };
 
-      var myRequest = new Request('https://script.google.com/macros/s/AKfycbxJR2x-WpAOkT27M9BF2lh7K6NtPJSqYYNvvtmb0VRMItKSXJ0/exec');
-      
-
-           
-      var returnVal = await fetch(myRequest, myInit)
-            .then(function(response) {
-              if (!response.ok) {
-                
-                throw new Error("HTTP error, status = " + response.status);
-                
-              }
-              
-              return response.text();
-            })
-            .then(function(myBlob) {
-              
-              var objectURL = myBlob;
-              let newMainDiv = document.getElementById("newMainDiv");
-              //newMainDiv.innerHTML = objectURL;
-              return objectURL;
-              
-            })
-            .catch(function(error) {
-              var p = document.createElement('p');
-              p.appendChild(
-                document.createTextNode('Error: ' + error.message)
-              );
-              document.body.insertBefore(p, myImage2);
-            });
-
-
-            document.getElementById("sheetVal").innerHTML = returnVal;
-           
-          
-          
-};
 
 
 
 
 
 localFunc.setScene();
-fetchInfo();
+localFunc.fetchInfo();
 
 
 
@@ -205,10 +330,5 @@ testText.addEventListener("input",function(){
       document.getElementById("titleArea").innerHTML = text;
 },false);
 
-testButton.addEventListener("click", function(){
-  //var  testVar100 = await fetchInfo();
-  var text = document.getElementById("sheetVal");
-  text = text.innerHTML;
-  
-},false);
+testButton.addEventListener("click", localFunc.fetchInfo,false);
 

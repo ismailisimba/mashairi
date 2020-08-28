@@ -262,6 +262,8 @@ html {
 
 .message:nth-child(2n) {
     color: darkgreen;
+    
+    
   }
 
   .message:nth-child(5) {

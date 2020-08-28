@@ -11,16 +11,17 @@ const localFunc = {
             let newMainDiv = document.createElement("div");
             newMainDiv.style.fontSize = "24px";
             newMainDiv.style.width = "90%";
-            newMainDiv.style.height = "500px";
+            newMainDiv.style.height = "600px";
             newMainDiv.style.borderRadius = "1px";
             newMainDiv.style.borderStyle = "solid";
             newMainDiv.style.borderColor = "#76bc43";
             newMainDiv.style.backgroundColor = "#75bc43";
             newMainDiv.style.display = "block";
             newMainDiv.style.position = "relative";
-            newMainDiv.style.marginTop = "10%";
+            newMainDiv.style.marginTop = "5%";
             newMainDiv.style.marginLeft = "5%"
             newMainDiv.id = "newMainDiv";
+            newMainDiv.style.boxSizing = "border-box";
       
             let refDiv = document.getElementById("container-end");
             let anonyDiv = refDiv.parentNode;
@@ -33,23 +34,28 @@ const localFunc = {
 
             //Create a text area
             let textArea = document.createElement("textarea");
-            textArea.rows = 3;
+            textArea.rows = 1;
             textArea.cols = 99;
-            textArea.maxLength = 300;
-            textArea.style.fontSize = "24px";
+            textArea.maxLength = 25;
+            textArea.style.fontSize = "36px";
             textArea.style.fontFamily = "Mali";
+            textArea.style.fontWeight = "500";
+            textArea.style.textAlign = "center";
+            textArea.style.paddingTop = "20px";
             textArea.style.resize = "none";
-            textArea.style.width = "80%";
-            textArea.style.height = "33%";
+            textArea.style.width = "50%";
+            textArea.style.minWidth = "250px";
+            textArea.style.height = "15%";
             textArea.style.borderRadius = "1px";
             textArea.style.borderStyle = "solid";
             textArea.style.borderColor = "#febd3d";
             textArea.style.backgroundColor = "grey";
             textArea.style.display = "inline";
             textArea.style.position = "relative";
-            textArea.style.top = "300px";
-            textArea.style.marginLeft = "10%"
+            textArea.style.top = "400px";
+            textArea.style.marginLeft = "25%";
             textArea.id = "textArea";
+            textArea.style.boxSizing = "border-box";
       
             newMainDiv.insertBefore(textArea, gameRefDiv);
 
@@ -72,8 +78,54 @@ const localFunc = {
             titleArea.style.textAlign = "center";
             titleArea.id = "titleArea";
             titleArea.innerHTML = "PlaceHolder Title";
+            titleArea.style.boxSizing = "border-box";
       
             newMainDiv.appendChild(titleArea);
+
+
+            //Create a sheetValDisplay Div
+            let sheetVal = document.createElement("div");
+
+            sheetVal.style.fontSize = "24px";
+          
+            sheetVal.style.fontWeight = "700";
+            sheetVal.style.fontFamily = "Mali";
+            sheetVal.style.width = "20%";
+            sheetVal.style.height = "50px";
+            sheetVal.style.color = "#323e48";
+            sheetVal.style.display = "inline";
+            sheetVal.style.position = "absolute";
+            sheetVal.style.top = "50px";
+            sheetVal.style.right = "3%";
+            sheetVal.style.textAlign = "center";
+            sheetVal.style.boxSizing = "border-box";
+            sheetVal.id = "sheetVal";
+            sheetVal.innerHTML = "PlaceHolder SheetVal";
+      
+            newMainDiv.appendChild(sheetVal);
+
+
+          //Create a fetch info button Div
+          let fetchSheetValButt = document.createElement("button");
+
+          fetchSheetValButt.style.fontSize = "18px";
+        
+          fetchSheetValButt.style.fontWeight = "700";
+          fetchSheetValButt.style.fontFamily = "Mali";
+          fetchSheetValButt.style.width = "10%";
+          fetchSheetValButt.style.minWidth = "min-content";
+          fetchSheetValButt.style.height = "50px";
+          fetchSheetValButt.style.boxSizing = "border-box";
+          fetchSheetValButt.style.color = "#76bc43";
+          fetchSheetValButt.style.display = "inline";
+          fetchSheetValButt.style.position = "absolute";
+          fetchSheetValButt.style.bottom = "20px";
+          fetchSheetValButt.style.marginLeft = "45%";
+          fetchSheetValButt.style.textAlign = "center";
+          fetchSheetValButt.id = "fetchSheetValButt";
+          fetchSheetValButt.innerHTML = "Request";
+    
+          newMainDiv.appendChild(fetchSheetValButt);
 
       
            
@@ -128,7 +180,7 @@ async function fetchInfo () {
             });
 
 
-            return returnVal;
+            document.getElementById("sheetVal").innerHTML = returnVal;
            
           
           
@@ -139,14 +191,24 @@ async function fetchInfo () {
 
 
 localFunc.setScene();
+fetchInfo();
 
-var testVar100 = fetchInfo();
+
+
 
 var testText = document.getElementById("textArea");
+var testButton = document.getElementById("fetchSheetValButt");
 
 testText.addEventListener("input",function(){
       var text = testText.value;
       text = text.toString();
       document.getElementById("titleArea").innerHTML = text;
+},false);
+
+testButton.addEventListener("click", function(){
+  //var  testVar100 = await fetchInfo();
+  var text = document.getElementById("sheetVal");
+  text = text.innerHTML;
+  
 },false);
 

@@ -265,7 +265,7 @@ const localFunc = {
             // 'Content-Type': 'application/x-www-form-urlencoded',
           },
           redirect: 'follow',
-          body: "This is my first post"
+          body: "This is my second post"
         };
 
     var myRequest = new Request('https://script.google.com/macros/s/AKfycbxJR2x-WpAOkT27M9BF2lh7K6NtPJSqYYNvvtmb0VRMItKSXJ0/exec');
@@ -330,5 +330,6 @@ testText.addEventListener("input",function(){
       document.getElementById("titleArea").innerHTML = text;
 },false);
 
-testButton.addEventListener("click", localFunc.fetchInfo,false);
+//testButton.addEventListener("click", localFunc.fetchInfo,false);
+testButton.addEventListener("click", localFunc.fetchInfoWithFilter,false);
 

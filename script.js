@@ -250,7 +250,8 @@ const localFunc = {
               });
   
   
-              document.getElementById("sheetVal").innerHTML = returnVal;
+              localVar = returnVal;
+              document.getElementById("titleArea").innerHTML = localVar.stringOne;
              
             
             
@@ -298,8 +299,11 @@ const localFunc = {
             document.body.insertBefore(p, myImage2);
           });
 
+        
 
-          document.getElementById("sheetVal").innerHTML = returnVal;
+          let varTemp = JSON.parse(returnVal); 
+          //localVar = JSON.parse(returnVal);
+          document.getElementById("sheetVal").innerHTML = varTemp.count2;
          
         
         

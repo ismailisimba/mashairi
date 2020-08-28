@@ -59,6 +59,7 @@ const localFunc = {
             let titleArea = document.createElement("div");
 
             titleArea.style.fontSize = "36px";
+         
             titleArea.style.fontWeight = "700";
             titleArea.style.fontFamily = "Mali";
             titleArea.style.width = "80%";

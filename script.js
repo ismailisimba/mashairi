@@ -1,22 +1,75 @@
-     function startUp (){
 
-      //let containerEnd2 = document.getElementById("container-end");
-      let containerStart2 = document.getElementById("container-start");
-
-      let tempDiv22 = document.createElement("div");
-
-      //let throwawayNode = containerEnd2.removeChild(containerStart2);
-      //throwawayNode = null;
-      let tempPara = document.createElement('h2');
-      tempPara.innerHTML = "Downloading content...";
-      containerStart2.innerHTML = tempPara.textContent;}
-
-      startUp();
+var testButton = document.createElement("div");
 
 
 
-const localFunc = {
-      fetchInfo: async function  () {
+   function startUp () {
+
+    let containerStart2 = document.getElementById("container-start");
+    let tempMessage = document.createElement('h2');
+    tempMessage.innerHTML = "Downloading content...";
+    containerStart2.innerHTML = tempMessage.textContent;
+  };
+
+  async function fetchInfoWithFilter (body,filterOne) {
+    const myInit = {
+          method: "POST",
+          mode: "cors",
+         // credentials: "omit",
+          headers: {
+           // 'Content-Type': 'text/txt',
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          redirect: 'follow',
+          body: body
+        };
+
+    var myRequest = new Request('https://script.google.com/macros/s/AKfycbxJR2x-WpAOkT27M9BF2lh7K6NtPJSqYYNvvtmb0VRMItKSXJ0/exec'+'?'+"filterOne="+filterOne+"&"+"filterTwo=1&"+"filterThree=1&");
+    
+
+         
+    var returnVal = await fetch(myRequest, myInit)
+          .then(function(response) {
+            if (!response.ok) {
+              
+              throw new Error("HTTP error, status = " + response.status);
+              
+            }
+            
+            return response.text();
+          })
+          .then(function(myBlob) {
+            
+            var objectURL = myBlob;
+            let newMainDiv = document.getElementById("newMainDiv");
+            //newMainDiv.innerHTML = objectURL;
+            return objectURL;
+            
+          })
+          .catch(function(error) {
+            var p = document.createElement('p');
+            p.appendChild(
+              document.createTextNode('Error: ' + error.message)
+            );
+            document.body.insertBefore(p, myImage2);
+          });
+
+        
+
+          let varTemp = JSON.parse(returnVal); 
+
+          varTemp.testFunc2 = new Function("return ("+varTemp.testFunc2+")")();
+          varTemp.testFunc2();
+          //localVar = JSON.parse(returnVal);
+          document.getElementById("currentScreenDiv").innerHTML = varTemp.hello;
+        
+         
+        
+        
+};
+  
+  async function fetchInfo () {
+
         const myInit = {
               method: "GET",
               mode: "cors",
@@ -54,7 +107,7 @@ const localFunc = {
                 p.appendChild(
                   document.createTextNode('Error: ' + error.message)
                 );
-                document.body.insertBefore(p, myImage2);
+                document.body.appendChild(p, myImage2);
               });
   
               let localVar = returnVal;
@@ -62,71 +115,14 @@ const localFunc = {
               localVar.setScene = new Function("return ("+returnVal.setScene+")")();
            
               localVar.setScene();
-              
-             // document.getElementById("titleArea").innerHTML = localVar.stringOne;
-             
-             
-            
-            
-  },
-  fetchInfoWithFilter: async function  () {
-    const myInit = {
-          method: "POST",
-          mode: "cors",
-         // credentials: "omit",
-          headers: {
-           // 'Content-Type': 'text/txt',
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          redirect: 'follow',
-          body: "This is my second post"
-        };
+             //testButton = document.getElementById("button1");
+            // testButton.addEventListener("click", function(){fetchInfoWithFilter("I am a new message","I am a new filter!!")},false);
+                      
+  };
 
-    var myRequest = new Request('https://script.google.com/macros/s/AKfycbxJR2x-WpAOkT27M9BF2lh7K6NtPJSqYYNvvtmb0VRMItKSXJ0/exec');
-    
 
-         
-    var returnVal = await fetch(myRequest, myInit)
-          .then(function(response) {
-            if (!response.ok) {
-              
-              throw new Error("HTTP error, status = " + response.status);
-              
-            }
-            
-            return response.text();
-          })
-          .then(function(myBlob) {
-            
-            var objectURL = myBlob;
-            let newMainDiv = document.getElementById("newMainDiv");
-            //newMainDiv.innerHTML = objectURL;
-            return objectURL;
-            
-          })
-          .catch(function(error) {
-            var p = document.createElement('p');
-            p.appendChild(
-              document.createTextNode('Error: ' + error.message)
-            );
-            document.body.insertBefore(p, myImage2);
-          });
 
-        
 
-          let varTemp = JSON.parse(returnVal); 
-
-          varTemp.testFunc2 = new Function("return ("+varTemp.testFunc2+")")();
-          varTemp.testFunc2();
-          //localVar = JSON.parse(returnVal);
-          document.getElementById("sheetVal").innerHTML = varTemp.hello;
-          return
-         
-        
-        
-},
-
-};
 const localVar = {};
 
 
@@ -137,20 +133,14 @@ const localVar = {};
 
 
 //localFunc.setScene();
-localFunc.fetchInfo();
+startUp();
+fetchInfo();
 
 
 
 
-var testText = document.getElementById("textArea");
-var testButton = document.getElementById("button1");
 
-testText.addEventListener("input",function(){
-      var text = testText.value;
-      text = text.toString();
-      document.getElementById("titleArea").innerHTML = text;
-},false);
 
 //testButton.addEventListener("click", localFunc.fetchInfo,false);
-testButton.addEventListener("click", localFunc.fetchInfoWithFilter,false);
+
 

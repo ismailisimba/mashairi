@@ -285,6 +285,17 @@ html {
 }
 
 
+.buttstyle:hover {
+
+
+    box-shadow: 1px 1.6px 0.1px 0.2px #1e4488;
+    
+  
+ 
+
+}
+
+
   @media only screen 
   and (max-device-width: 1024px) 
   and (-webkit-min-device-pixel-ratio: 2) {

@@ -274,7 +274,13 @@ html {
     color: darkblue;
   }
 
-
+#newMainDiv, textarea {
+    
+        -moz-box-shadow:    inset 0 0 5px #1e4488;
+        -webkit-box-shadow: inset 0 0 5px #1e4488;
+        box-shadow:         inset 0 0 5px #1e4488;
+    
+}
 
 
   @media only screen 

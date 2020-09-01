@@ -121,6 +121,11 @@ var testButton = document.createElement("div");
   };
 
 
+  function populateGames() {
+    
+  };
+
+
 
 
 const localVar = {};

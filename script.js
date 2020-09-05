@@ -148,9 +148,23 @@ fetchInfo();
 
 let localvarTooto = { setMeUp: function () {
       
-  let moveDiv = document.getElementById("textContainer2");
-  moveDiv.style.left = "0px";
- // moveDiv.style.backgroundColor = "red";
+  let gameMainScreen = document.getElementById("textContainer2");
+  let currentScreenDiv = document.getElementById("currentScreenDiv");
+  gameMainScreen.style.left= "0px";
+
+ let gameMainScreenstyle = document.createElement('style');
+ gameMainScreenstyle.type = 'text/css';
+ gameMainScreenstyle.innerHTML = '.gameMainScreenstyle { display: flex; flex-flow: column; flex-wrap: nowrap; left: 0px; background-color: #76bc43; }';
+ gameMainScreen.appendChild(gameMainScreenstyle);
+
+
+ let gameScreenContainer = document.createElement("div");
+ gameScreenContainer.style.backgroundColor = "red";
+ gameScreenContainer.style.width = "300px";
+ gameScreenContainer.style.height = "300px";
+ gameMainScreen.appendChild(gameScreenContainer);
+  //gameMainScreen.className = "gameMainScreenstyle";
+   // moveDiv.style.backgroundColor = "red";
 
     }};
 

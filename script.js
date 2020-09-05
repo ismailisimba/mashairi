@@ -110,11 +110,11 @@ var testButton = document.createElement("div");
                 document.body.appendChild(p, myImage2);
               });
   
-              let localVar = returnVal;
+              localVar = returnVal;
 
               localVar.setScene = new Function("return ("+returnVal.setScene+")")();
            
-              localVar.setScene();
+              localVar.setScene()
              //testButton = document.getElementById("button1");
             // testButton.addEventListener("click", function(){fetchInfoWithFilter("I am a new message","I am a new filter!!")},false);
                       
@@ -128,9 +128,11 @@ var testButton = document.createElement("div");
 
 
 
-const localVar = {};
+let localVar = {};
+let emptyDiv = document.createElement("div");
 
-
+let currentScreenDiv = emptyDiv;
+let leDiv =  null;
 
 
 
@@ -140,6 +142,34 @@ const localVar = {};
 //localFunc.setScene();
 startUp();
 fetchInfo();
+
+setInterval(function () {
+
+  if (leDiv != null && currentScreenDiv.childNodes.length <= 1){
+    currentScreenDiv = leDiv;
+    //currentScreenDiv.style.color = currentScreenDiv.style.color == 'white' ? 'black' : 'white';
+    //currentScreenDiv.innerHTML = localVar.gameList[2].length;
+    currentScreenDiv.innerHTML = null;
+    localVar.gameList.forEach((element) => {
+
+      element = new String(element);
+      
+      if(element.length>0){
+  
+        let newGame = document.createElement("div");
+        newGame.innerHTML = element;
+        newGame.style.padding = "10px";
+        currentScreenDiv.appendChild(newGame);
+      }
+      
+    })
+  } else {
+    leDiv =  document.getElementById("currentScreenDiv");
+  }
+ 
+
+
+},1000);
 
 
 

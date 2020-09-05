@@ -146,11 +146,26 @@ startUp();
 fetchInfo();
 
 
+let localvarTooto = { setMeUp: function () {
+      
+  let moveDiv = document.getElementById("textContainer2");
+  moveDiv.style.left = "0px";
+ // moveDiv.style.backgroundColor = "red";
 
-/*
-setInterval(function () {},1000);
+    }};
 
-*/
+
+
+setInterval(function () {
+  leDiv = document.getElementById("currentScreenDiv");
+  if (leDiv != null) {
+  
+   // leButton.innerHTML = "sjv";
+    
+  }
+},1000);
+
+
 
 
 

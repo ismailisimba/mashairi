@@ -154,19 +154,79 @@ let localvarTooto = { setMeUp: function () {
 
  let gameMainScreenstyle = document.createElement('style');
  gameMainScreenstyle.type = 'text/css';
- gameMainScreenstyle.innerHTML = '.gameMainScreenstyle { display: flex; flex-flow: column; flex-wrap: nowrap; left: 0px; background-color: #76bc43; }';
+ gameMainScreenstyle.innerHTML = '.gameMainScreenstyle { display: flex; flex-flow: column; flex-wrap: nowrap; justify-content: flex-start; align-itmes: center; left: 0px; background-color: #6f2877; }';
  gameMainScreen.appendChild(gameMainScreenstyle);
 
 
  let gameScreenContainer = document.createElement("div");
- gameScreenContainer.style.backgroundColor = "red";
- gameScreenContainer.style.width = "300px";
- gameScreenContainer.style.height = "300px";
  gameMainScreen.appendChild(gameScreenContainer);
-  //gameMainScreen.className = "gameMainScreenstyle";
+ //gameScreenContainer.style.backgroundColor = "red";
+ gameScreenContainer.style.width = "105%";
+ gameScreenContainer.style.position = "relative";
+ gameScreenContainer.style.left = "-50px";
+ gameScreenContainer.style.height = "100%";
+ 
+  gameScreenContainer.className = "gameMainScreenstyle";
    // moveDiv.style.backgroundColor = "red";
 
-    }};
+
+  let topDiv = document.createElement("div");
+  let midDiv = document.createElement("div");
+  let botDiv = document.createElement("div");
+
+  topDiv.style.width = "100%";
+  midDiv.style.width = "100%";
+  botDiv.style.width = "100%"
+
+  topDiv.style.height = "15%";
+  midDiv.style.height = "60%";
+  botDiv.style.height = "35%";
+
+  topDiv.style.backgroundColor = "#1e4488";
+  midDiv.style.backgroundColor = "#a2a9ad";
+  botDiv.style.backgroundColor = "#76bc43";
+
+
+  gameScreenContainer.appendChild(topDiv);
+  gameScreenContainer.appendChild(midDiv);
+  gameScreenContainer.appendChild(botDiv);
+
+
+  
+ let topDivstyle = document.createElement('style');
+ topDivstyle.type = 'text/css';
+ topDivstyle.innerHTML = '.topDivstyle { display: flex; flex-flow: row; flex-wrap: nowrap; justify-content: space-around; align-items: center; }';
+ gameMainScreenstyle.appendChild(topDivstyle);
+ topDiv.className = "topDivstyle";
+
+ let leftArrow = document.createElement("div");
+ leftArrow.style.backgroundImage = "url('https://wadqra.am.files.1drv.com/y4mV4QS1GA_lGSwoTLkC3ZsvpFW3zsi0znii3bIpGdtXY-uPSFEAAVXjDnbwiXkMN1HS-bgC-eOXbEAIg-sGOUYOLT0L7AI6fZs0duJhS5fXuYKHZLpKYUSWmm842NHPksoTznWLaw_sODHv0gqtJHHwQKA2He8SNEzZ_NnQ4-JCsMiErB4SCFaULygIjhAckWErUsYUfiYdkVgfbiVJJ-OFA?')";
+ leftArrow.style.width = "120px";
+ leftArrow.style.height = "80px";
+ leftArrow.style.backgroundSize = "cover";
+
+ let rightArrow = document.createElement("div");
+ rightArrow.style.backgroundImage = "url('https://w3wm5w.am.files.1drv.com/y4miWVf7n3Vsqt9BejKBAAIECVZUqEc9FM3NNF0GfLOW1zXQ7NBnyVAtOABTxWiyy4GeIN4Eg_0iAmV6Qb-qSctb3NAbJADDXV03z6ZBJ6UjcG6N6mw-GX4MX-JhNDC5GR60r46GFQ4XDMSzxYts_Z7s_l2tyV2WTTA2J5ORfx1-5_PWT2UWPjrXA1JhU7iLTxbShr_eLDk5qsJckW8NLCUMg?')";
+ rightArrow.style.width = "120px";
+ rightArrow.style.height = "80px";
+ rightArrow.style.backgroundSize = "cover";
+
+ let gameTitle = document.createElement("div");
+ gameTitle.innerHTML = "Mashairi - Lyrics Game";
+ gameTitle.style.fontSize = "x-large";
+
+ topDiv.appendChild(leftArrow);
+ topDiv.appendChild(gameTitle);
+ topDiv.appendChild(rightArrow);
+
+  
+    
+  
+  
+  
+  
+  
+  }};
 
 
 

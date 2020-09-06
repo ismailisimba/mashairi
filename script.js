@@ -15,7 +15,7 @@ var testButton = document.createElement("div");
     containerStart2.innerHTML = tempMessage.textContent;
   };
 
-  async function fetchInfoWithFilter (body,filterOne) {
+  /*async function fetchInfoWithFilter (body,filterOne) {
     const myInit = {
           method: "POST",
           mode: "cors",
@@ -70,7 +70,7 @@ var testButton = document.createElement("div");
          
         
         
-};
+};*/
   
   async function fetchInfo () {
 

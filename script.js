@@ -119,11 +119,13 @@ var testButton = document.createElement("div");
               localVar.setScene = new Function("return ("+returnVal.setScene+")")();
               localVar.fillAvailGames = new Function("return ("+returnVal.fillAvailGames+")")();
               localVar.setupGame1 = new Function("return ("+returnVal.setupGame1+")")();
+              localVar.startGame1 = new Function("return ("+returnVal.setupGame1+")")();
               
            
               localVar.setScene();
               localVar.fillAvailGames();
               localVar.setupGame1();
+             // localVar.startGame1();
                         
   };
 
